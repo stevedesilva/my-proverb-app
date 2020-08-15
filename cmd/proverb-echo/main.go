@@ -6,7 +6,7 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-const msg = "My proverb-native"
+const msg = "My proverb-echo"
 
 func main() {
 	startServer()
@@ -14,11 +14,13 @@ func main() {
 
 func startServer() {
 	e := echo.New()
+	// open api codegen used to generate client and server stubs
 	impl := NewProverbsService()
 	server.RegisterHandlers(e, impl)
 
-	//e.GET("/", func(e echo.Context) error {
-	//	return e.String(http.StatusOK, msg)
-	//})
+	// serve static content
+	e.Static("/swaggerui", "api/swaggerui")
+	e.Static("/redoc", "api/redoc")
+
 	e.Logger.Fatal(e.Start(":8081"))
 }

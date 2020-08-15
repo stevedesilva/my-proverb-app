@@ -33,6 +33,7 @@ type ProverbsService struct{}
 func NewProverbsService() *ProverbsService {
 	return &ProverbsService{}
 }
+
 func (s *ProverbsService) FindProverbs(ctx echo.Context, params server.FindProverbsParams) error {
 	fmt.Println("FindProverbs")
 	return nil

@@ -5,7 +5,8 @@ Proverb application spreading wisdom to the masses
 [Swagger doc](http://localhost:8081)
 
 ## API Documentation
-- [Swagger doc](http://localhost:8081)
+- [Swagger doc](http://localhost:8081/swaggerui/index.html)
+- [ReDoc](http://localhost:8081/redoc/index.html)
 - [Project Structure](#structure)
 - [Web Server](#server)
 - [Open API](#Open API)
