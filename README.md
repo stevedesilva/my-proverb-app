@@ -10,6 +10,7 @@ Proverb application spreading wisdom to the masses
 - [Project Structure](#structure)
 - [Web Server](#server)
 - [Open API](#Open API)
+- [structure](https://github.com/golang-standards/project-layout)
 - [Documentation] (#documentation)
 
 ## structure
@@ -21,5 +22,9 @@ go get -u github.com/labstack/echo/...
 run via cmd/proverb-echo/main.go
 
 ##  Open API
-oapi-codegen --generate types,server --package server ./docs/swagger/proverb.yaml > ./api/server/server.go
+https://github.com/deepmap/oapi-codegen
 
+oapi-codegen --generate types,server --package server ./api/swagger/proverb.yaml > ./api/server/server.go
+
+## ReDoc
+https://github.com/Redocly/redoc
