@@ -2,6 +2,7 @@ package handler
 
 import (
 	"fmt"
+	"net/http"
 
 	"github.com/stevedesilva/my-proverb-app/pkg/proverb"
 
@@ -38,6 +39,13 @@ func NewProverbsService() *ProverbsService {
 
 func (s *ProverbsService) FindProverbs(ctx echo.Context, params server.FindProverbsParams) error {
 	fmt.Println("FindProverbs")
+	p := proverb.New()
+	data, err := p.GetProverbs()
+	if err != nil {
+		return echo.ErrInternalServerError
+	}
+
+	ctx.JSON(http.StatusOK, data)
 	return nil
 }
 
@@ -57,8 +65,12 @@ func (s *ProverbsService) FindProverbById(ctx echo.Context, id int64) error {
 }
 
 func (s *ProverbsService) GetInformation(ctx echo.Context) error {
-	fmt.Println("GetInformation")
+	fmt.Println("FindProverbs")
 	p := proverb.New()
-	p.GetProverbs()
-	return nil
+	err := p.LoadProverb()
+	if err != nil {
+		return echo.ErrInternalServerError
+	}
+
+	return ctx.NoContent(http.StatusOK)
 }

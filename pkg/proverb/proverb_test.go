@@ -15,6 +15,13 @@ func TestProverb_GetProverbs(t *testing.T) {
 	assert.Equal(t, 8, len(v))
 }
 
+func TestProverb_LoadProverbs(t *testing.T) {
+	p := proverb.New()
+	err := p.LoadProverb()
+	assert.Nil(t, err)
+
+}
+
 //func TestProverb_GetProverbs(t *testing.T) {
 //	type fields struct {
 //		Quote  string
